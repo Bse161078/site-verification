@@ -1,9 +1,9 @@
 {
-  "name": "siteverification",
+  "name": "app.js",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -11,5 +11,17 @@
     "express": "~4.16.1",
     "googleapis": "^105.0.0",
     "morgan": "~1.9.1"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullah321456/site-verification.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdullah321456/site-verification/issues"
+  },
+  "homepage": "https://github.com/abdullah321456/site-verification#readme",
+  "description": ""
 }
