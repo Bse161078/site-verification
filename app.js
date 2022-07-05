@@ -81,7 +81,7 @@ const invokeSiteVerificationApi=async (req,res)=> {
     });
 
     try{
-        await siteVerification.webResource.insert({
+        const data=await siteVerification.webResource.insert({
             verificationMethod: 'DNS_TXT',
             requestBody: {
                 site: {
@@ -90,7 +90,10 @@ const invokeSiteVerificationApi=async (req,res)=> {
                 },
             }
         });
+        res.status(200);
+        res.json(data);
     }catch (e) {
+        res.status(500);
         res.json(e);
     }
 }
