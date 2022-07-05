@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var cors = require("cors");
 
 const {google} = require('googleapis');
 const OAuth2Client =google.auth.OAuth2;
@@ -12,6 +13,7 @@ const OAuth2Client =google.auth.OAuth2;
 
 var app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,7 +26,7 @@ const oauth2Client=() =>{
     return new google.auth.OAuth2(
         "66805527862-vtcb1djnqbt1e219lfjo4bepducecsqn.apps.googleusercontent.com",
         "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",
-        'https://site-verification-b1661.firebaseapp.com/__/auth/handler'
+        'https://domain-verification-c7a75.web.app/'
     );
 }
 
