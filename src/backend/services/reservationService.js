@@ -1,14 +1,14 @@
 import { db } from '../firebase';
-import { Reservation } from '../models/reservation';
+import { Ranking } from '../models/ranking';
 
 
-export const getReservation = async function () {
-    const query = await db.collection('Reservations').get();
-
+export const getRanking = async function () {
+    const query = await db.collection('SEORank').get();
+    console.log("Ranking:",query)
     let Reservations = [];
 
     query.docs.forEach((doc) => {
-        const Reser = Reservation.fromFirestore(doc);
+        const Reser = Ranking.fromFirestore(doc);
         if (Reservations) {
             Reservations.push(Reser);
         }
@@ -17,15 +17,14 @@ export const getReservation = async function () {
     return Reservations;
 };
 
-export const addReservation = async function (data) {
-    console.log("reservation",data)
+export const addSEORank = async function (data) {
     await db
-      .collection("Reservations")
+      .collection("SEORank")
       .add(data)
       .then(async function (docRef) {
         //   console.log("Document written with ID: ", docRef.id);
         data.id = docRef.id;
-        await updateReservation(docRef.id, data);
+        await updateSEORank(docRef.id, data);
       }).catch((err) => {
         console.log("Error:", err);
         this.setState({
@@ -39,9 +38,9 @@ export const addReservation = async function (data) {
   export const deleteReservation = async function (id) {
     await db.collection("Reservations").doc(id).delete();
   };
-  export const updateReservation = async function (id, data) {
+  export const updateSEORank = async function (id, data) {
        console.log("Edit data:", data);
-    await db.collection("Reservations").doc(id).set(data, { merge: true });
+    await db.collection("SEORank").doc(id).set(data, { merge: true });
   };
 
 export const getTripReservation = async function () {
@@ -50,7 +49,7 @@ export const getTripReservation = async function () {
     let Reservations = [];
 
     query.docs.forEach((doc) => {
-        const Reser = Reservation.fromFirestore(doc);
+        const Reser = Ranking.fromFirestore(doc);
         if (Reservations) {
             Reservations.push(Reser);
         }

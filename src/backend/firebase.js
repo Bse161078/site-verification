@@ -1,14 +1,13 @@
 import firebase from "firebase";
 const config = {
-  apiKey: "AIzaSyDAFQrPtUQuxIyfwvMWzZaq1kaqCvL4Ehk",
-  authDomain: "react-native-step-out.firebaseapp.com",
-  projectId: "react-native-step-out",
-  databaseURL:"gs://react-native-step-out.appspot.com/",
-  storageBucket: "react-native-step-out.appspot.com",
-  messagingSenderId: "902770175125",
-  appId: "1:902770175125:web:71aba1bf2c174f89bfbf9c",
-  measurementId: "G-2ZP98N36GT"
-};
+  apiKey: "AIzaSyCANuh3R0zq4ImZSCrgpIPNV8LuXEPpH3A",
+  authDomain: "domain-verification-c7a75.firebaseapp.com",
+  projectId: "domain-verification-c7a75",
+  storageBucket: "domain-verification-c7a75.appspot.com",
+  messagingSenderId: "540686031174",
+  appId: "1:540686031174:web:1c8a400b4ca67c200cad47",
+  measurementId: "G-JXGDDSGGLJ"
+}
 firebase.initializeApp(config);
 const db = firebase.firestore();
 var storage = firebase.storage();

@@ -1,12 +1,13 @@
 {
   "hosting": {
     "public": "build",
-    "site": "stepoutsubscriber",
+    "site": "domain-verification-c7a75",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
+    
     "rewrites": [
       {
         "source": "**",

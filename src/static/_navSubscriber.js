@@ -2,13 +2,24 @@ export default {
 
     items: [
       {
-        name: "Venue",
-        url: "/Venue",
+        name: "Domain Verify",
+        url: "/DomainVerify",
         icon: "icon-globe",
       },
       {
-        name: "Promotions",
-        url: "/Promotions",
+        name: "Seo Rank",
+        url: "/Ranking",
+        icon: "icon-globe",
+      },
+      
+      {
+        name: "Screenshot",
+        url: "/Screenshot",
+        icon: "icon-globe",
+      },
+      {
+        name: "Domain Detailer",
+        url: "/DomainDetailer",
         icon: "icon-globe",
       },
       {

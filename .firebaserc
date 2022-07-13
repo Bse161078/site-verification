@@ -6,7 +6,8 @@
     "subscribe": "stepoutadmin",
     "subscriber": "stepoutsubscriber",
     "l": "stepoutsubscriber",
-    "asd": "stepoutsubscriber"
+    "asd": "stepoutsubscriber",
+    "domain": "domain-verification-c7a75"
   },
   "targets": {}
 }

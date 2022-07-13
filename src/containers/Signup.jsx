@@ -12,7 +12,6 @@ import {
   InputGroupAddon,
   InputGroupText,
 } from "reactstrap";
-import { useHistory } from "react-router-dom";
 import Cookie from "js-cookie";
 import axios from "axios/index";
 import Formsy from "formsy-react";
@@ -20,7 +19,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { API_END_POINT } from "../config";
-import { signInWithEmail } from "../backend/services/authService";
+import { signUp } from "../backend/services/authService";
 import sneaker from "../public/img/logo.png";
 import golf from "../public/img/logo.png";
 import firebase from "firebase";
@@ -38,7 +37,7 @@ const style = {
   },
 };
 
-class Login extends Component {
+class Signup extends Component {
   
   constructor(props) {
     super(props);
@@ -78,25 +77,48 @@ class Login extends Component {
       // Cookie.set('sneakerlog_access_token', { expires: 14 })
       // this.props.history.push("/");
 
-      const signInResult = await signInWithEmail(
+      const signInResult = await signUp(
         email,
         password,
         this.onSigninSuccess
 
       );
-      this.setState({ loading: false});
-    }
-  };
-
-  onSigninSuccess = (userId) => {
-    console.log("signin".userId)
-
-    if (userId) {
+      this.setState({
+        loading:false,
+        showSnackBar:true,
+        snackBarMessage:"You are successfully signup",
+        snackBarVariant:'success'
+      })
       this.props.history.push("/Venue");
-      }
-    
-    
+        }
   };
+
+//   onSigninSuccess = (userId) => {
+//     console.log("signin".userId)
+
+//     if (userId) {
+//             Cookie.set("sneakerlog_access_token", { expires: 14 });
+//             this.props.history.push("/Venue");
+//           } 
+//           else
+//            {
+//             // doc.data() will be undefined in this case
+//             this.setState({
+//               loading:false,
+//               showSnackBar:true,
+//               snackBarMessage:"You are not authorized to access",
+//               snackBarVariant:'error'
+//             })
+//              }   // this.setState({ loading: false });
+            
+//         })
+//         .catch(function (error) {
+//           console.log("Error getting document:", error);
+//         });
+//       }
+    
+    
+  //};
   closeSnackBar = () => {
     this.setState({ showSnackBar: false });
   };
@@ -129,7 +151,7 @@ class Login extends Component {
                       
                       <img className={`companyLogo`} src={golf} />
                     </div>
-                    <h1> Login</h1>
+                    <h1> Signup</h1>
                     <p className="text-muted py-2">Sign In to your account</p>
                     <Formsy onValidSubmit={this.submit.bind(this)}>
                       <InputGroup className="mb-3">
@@ -177,17 +199,15 @@ class Login extends Component {
                                 this.state.loading ? "" : "d-none"
                               }`}
                             />{" "}
-                            Login
+                            Signup
                           </Button>
-                         
                         </Col>
-                        
                         <Col xs="6" className="text-right">
-                          <Button color="red" className="px-0"
+                          <Button color="green" className="px-0"
                           onClick={()=>{
-                            this.props.history.push("/Signup")
+                            this.props.history.push("/login");
                           }}
-                          >Signup</Button>
+                          >Login</Button>
                         </Col>
                       </Row>
                     </Formsy>
@@ -214,8 +234,8 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
+Signup.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default withRouter(connect()(Login));
+export default withRouter(connect()(Signup));

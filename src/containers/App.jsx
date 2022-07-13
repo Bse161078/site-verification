@@ -13,10 +13,12 @@ import * as types from "../static/_types";
 import { firebase } from "../backend/firebase";
 import { getSignedInUser } from "../backend/services/authService";
 import { RootContext } from "../../src/backend/Context";
-import VenuesForm from "./VenuesForm";
-import Promotions from "./Promotions"
-import SubscriberVenue from "./SubscriberVenue"
-import PromotionForm from './PromotionForm'
+import Ranking from "./Ranking"
+import Signup from "./Signup";
+import DomainVerify from "./DomainVerify";
+import SEORank from "./SEORank";
+import Screenshot from "./ScreenShot.";
+import DomainDetailer from "./DomainDetailer";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -48,6 +50,7 @@ class App extends React.Component {
       this.setState({ loading: false });
     } else {
       history.push("/login");
+      history.push("/Signup");
     }
   }
   componentDidMount()
@@ -75,33 +78,32 @@ class App extends React.Component {
                    
                      <Route
                         exact={true}
-                        path="/Venue"
-                        component={SubscriberVenue}
+                        path="/Ranking"
+                        component={Ranking}
                     />
-                   <Route
-                    exact={true}
-                    path="/Promotions"
-                    component={Promotions}
-                  />
-                
-                  <Route
-                    exact={true}
-                    path="/Venue/AddVenue"
-                    component={VenuesForm}
-                  />
-                   
-                   <Route
-                    exact={true}
-                    path="/Venue/EditVenue"
-                    component={VenuesForm}
-                  />
-                  <Route
-                    exact={true}
-                    path="/Venue/AddPromotion"
-                    component={PromotionForm}
-                  />
+                      <Route
+                        exact={true}
+                        path="/Screenshot"
+                        component={Screenshot}
+                    />
+                    <Route
+                        exact={true}
+                        path="/AddSEORank"
+                        component={SEORank}
+                    />
+                     <Route
+                        exact={true}
+                        path="/DomainVerify"
+                        component={DomainVerify}
+                    />
+                 
+                 <Route
+                        exact={true}
+                        path="/DomainDetailer"
+                        component={DomainDetailer}
+                    />                                   
                
-                  <Redirect to={"/Venue"} from="/" />
+                  <Redirect to={"/DomainVerify"} from="/" />
                 </Switch>
               </Container>
             </main>

@@ -5,7 +5,7 @@ class Footer extends Component {
 		return (
 			<footer className="app-footer">
 				<span>
-					<a href="#">Step Out Admin Dashboard</a> &copy; 
+					<a href="#"> Dashboard</a> &copy; 
 				</span>
 				{/* <span className="ml-auto">Powered by <a href="http://waffleworld.com.cy/">Waffleworld.com</a></span> */}
 			</footer>
